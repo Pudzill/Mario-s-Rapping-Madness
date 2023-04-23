@@ -5,11 +5,7 @@ import datetime
 import re
 from termcolor import colored
 
-# User variables. IMPORTANT, look at these! HEY! OVER HERE!
-# These settings are important! Most are focused on cost saving, but some are simply gameplay orientated. Please at the very least take a glance at them!
-# Even though most of these settings may be directed towards cost saving, that doesn't necessarily mean this is going to eat through your credits. If it helps, for the entire 6 hours I've been working on this only 0.75 pence has been taken from my account related to this project. So yeah, your probably going to be fine in terms of what's getting spent, don't worry. But it's always here.
-
-hostedonPublic = True # If your forking this, please set this variable to "False" and instead set your OpenAPI token in the "Secrets" menu under "openai". This is by default set to True for the public repl.it so people can actually use it without forking, but when set to True is more locked down with disabled functionality and forces you to enter your API key every time.
+hostedonPublic = False # This setting is essentially redundant now. Keep it on False unless you want purposefully locked down functionality.
 
 if hostedonPublic:
     print(colored('Welcome!', 'cyan', attrs=['bold']))
@@ -27,7 +23,7 @@ if hostedonPublic:
           break
 
 if not hostedonPublic:
-    OpenApIKey = os.environ['openai'] # You can add your OpenAI API key by going into the "Secrets" menu of the repl.it Tools sidebar. This is needed for this script to function.
+    OpenApIKey = os.environ['openai'] # Input OpenAI API key here.
 
 my_model = 'text-davinci-003' # Davinci 003 is what this was tested on but other models can be used if you so wish. text-curie-001 is a step down from Davinci and can usually hold its own with a significantly smaller cost, but may be a tad less bright at times. Model list: https://beta.openai.com/docs/models/gpt-3
 
@@ -47,9 +43,9 @@ super_mario_health = 100 # Super Mario's health. This value doesn't matter if th
 
 
 # Welcome message to the user
-print(colored("Welcome to the Epic Rap Battle of HISTORY vs Super Mario!", "green"))
+print(colored("Welcome to the epic rap battle vs Super Mario!", "green"))
 if hostedonPublic:
-        print(colored("Please note: saving is disabled on the public repl. For increased functionally, please fork this repl and set 'hostedonPublic' to False. There are quite a few customizable variables, like disabling damage or changing health. Worth a peek!", "red"))
+        print(colored("Please note: saving is currently disabled. Please set hostedonPublic back to False if this wasn't intended.", "red"))
 
 print(colored("Remember: Super Mario is NOT real and cannot hurt you. Make sure to follow OpenAI's TOS whenever interacting with this program. Whatever you say is on you. You can type 'save' to create a text file of your current rap battle with Super Mario anytime. You can type 'quit' to exit.", "green"))
 
